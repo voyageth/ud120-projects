@@ -32,10 +32,15 @@ plt.show()
 ### visualization code (prettyPicture) to show you the decision boundary
 
 
+from sklearn.ensemble import AdaBoostClassifier
 
+clf = AdaBoostClassifier()
+clf.fit(features_train, labels_train)
+pred = clf.predict(features_test)
 
-
-
+from sklearn.metrics import accuracy_score
+accuracy = accuracy_score(labels_test, pred)
+print("accuracy : {}".format(accuracy))
 
 
 try:
