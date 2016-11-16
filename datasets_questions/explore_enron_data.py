@@ -48,8 +48,6 @@ for name in enron_data:
 print("none_count:{}, true_count:{}, false_count:{}, total_count:{}".format(none_count, true_count, false_count,
                                                                             none_count + true_count + false_count))
 
-'../final_project/poi_names.txt'
-
 print("true_contain_count:{}".format(true_contain_count))
 
 print(enron_data['PRENTICE JAMES']['total_stock_value'])
@@ -108,25 +106,20 @@ for i in range(len(features)):
     feature_array = feature_array[1]
 
 print(df.describe())
-print(df.head())
+# print(df.head())
+#
+# print(len(df.query('total_payments == 0')), float(len(enron_data)))
 
-print(len(df[df['total_payments'] == 0]), float(len(enron_data)))
 
-total_count=0
-total_payments_nan_count = 0
-for name in enron_data:
-    total_count +=1
-    row = enron_data[name]
-    if row['total_payments'] == 'NaN':
-        total_payments_nan_count += 1
-
-print("total_payments_nan_count:", total_payments_nan_count, "total_count:", total_count, "percentage:", total_payments_nan_count / float(total_count))
-
-# print("---------")
-# print(df[df['total_payments'] == 0])
-# print("==========")
+# total_count=0
+# total_payments_nan_count = 0
 # for name in enron_data:
+#     total_count +=1
 #     row = enron_data[name]
 #     if row['total_payments'] == 'NaN':
-#         print(row)
+#         total_payments_nan_count += 1
+#
+# print("total_payments_nan_count:", total_payments_nan_count, "total_count:", total_count, "percentage:", total_payments_nan_count / float(total_count))
+#
+
 
