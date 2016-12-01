@@ -57,6 +57,8 @@ data = featureFormat(data_dict, features_list )
 poi, finance_features = targetFeatureSplit( data )
 
 
+
+
 ### in the "clustering with 3 features" part of the mini-project,
 ### you'll want to change this line to 
 ### for f1, f2, _ in finance_features:
@@ -65,23 +67,36 @@ poi, finance_features = targetFeatureSplit( data )
 # fig = plt.figure()
 # ax = fig.add_subplot(111, projection='3d')
 
-min = 99999999
-max = 0
-for f1, f2 in finance_features:
-    if f1 != 'NaN':
-        if f1 > max :
-            max = f1
-        if 0 < f1 < min :
-            min = f1
-    # ax.scatter(f1, f2, f3)
-    plt.scatter( f1, f2)
+# min = 99999999
+# max = 0
+# for f1, f2 in finance_features:
+#     if f1 != 'NaN':
+#         if f1 > max :
+#             max = f1
+#         if 0 < f1 < min :
+#             min = f1
+#     # ax.scatter(f1, f2, f3)
+#     plt.scatter( f1, f2)
 
 #ax.set_xlabel('salary')
 #ax.set_ylabel('stock')
 #ax.set_zlabel('total_payments')
-plt.show()
+# plt.show()
 
-print min, max
+## print min, max
+
+from sklearn import preprocessing
+import numpy as np
+X_train = np.array(finance_features)
+
+print X_train.shape
+
+min_max_scaler = preprocessing.MinMaxScaler()
+scaler = min_max_scaler.fit(X_train)
+t1 = min_max_scaler.transform(np.array([[200000, 1000000]]))
+t2 = scaler.transform(np.array([[200000, 1000000]]))
+print t1
+print t2
 
 
 ### cluster here; create predictions of the cluster labels
