@@ -38,6 +38,8 @@ labels_train   = labels_train[:150]
 
 
 ### your code goes here
+print features_train
+print labels_train
 
 
 

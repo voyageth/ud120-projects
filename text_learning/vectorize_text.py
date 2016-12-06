@@ -59,6 +59,7 @@ for name, from_person in [("sara", from_sara), ("chris", from_chris)]:
         test = parseOutText(email)
 
         test = test.replace("sara", "").replace("shackleton", "").replace("chris", "").replace("germani", "")
+        test = test.replace("sshacklensf", "").replace("cgermannsf", "")
 
         word_data.append(test)
         from_data.append(0 if name == "sara" else 1)
