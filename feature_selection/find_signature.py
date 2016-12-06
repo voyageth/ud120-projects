@@ -42,4 +42,23 @@ print features_train
 print labels_train
 
 
+from sklearn import tree
+clf = tree.DecisionTreeClassifier()
+clf = clf.fit(features_train, labels_train)
+pred = clf.predict(features_test)
 
+from sklearn.metrics import accuracy_score
+accuracy = accuracy_score(labels_test, pred)
+print accuracy
+
+# numpy.set_printoptions(threshold='nan')
+print(max(clf.feature_importances_))
+# print clf.feature_importances_.tolist()
+# print(clf.feature_importances_.tolist().index(0.7647058823529412))
+# print(clf.feature_importances_.tolist().index(0.6666666666666667))
+
+print(numpy.where(clf.feature_importances_ > 0.2))
+
+print(vectorizer.get_feature_names()[33613:33616])
+print(vectorizer.get_feature_names()[14342:14345])
+print(vectorizer.get_feature_names()[21323])
